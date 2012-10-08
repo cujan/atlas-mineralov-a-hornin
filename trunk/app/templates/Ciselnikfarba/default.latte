@@ -1,0 +1,20 @@
+
+{block content}
+
+farba obsah
+
+<table>
+    <thead>
+    <tr>
+        <th>Vlastnosť</th>
+        
+    </tr>
+    </thead>
+    <tbody>
+    {foreach $tasks as $task}
+    <tr>
+        <td>{$task->vlastnost}</td>
+    </tr>
+    {/foreach}
+    </tbody>
+</table>
