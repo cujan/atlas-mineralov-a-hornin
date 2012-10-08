@@ -1,8 +1,7 @@
 
 {block content}
 
-farba obsah
-
+vryp
 <table>
     <thead>
     <tr>
@@ -11,13 +10,13 @@ farba obsah
     </tr>
     </thead>
     <tbody>
-        {var $i=1}
+    
     {foreach $tasks as $task}
     <tr>
-        <td>{$i}</td>
+        
         <td>{$task->vlastnost}</td>
     </tr>
-    {$i++}
     {/foreach}
+    
     </tbody>
 </table>
