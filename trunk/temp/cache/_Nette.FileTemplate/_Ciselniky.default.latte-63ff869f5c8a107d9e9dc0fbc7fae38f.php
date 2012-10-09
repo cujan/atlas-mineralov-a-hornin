@@ -1,22 +1,33 @@
-<?php //netteCache[01]000402a:2:{s:4:"time";s:21:"0.61825300 1349685204";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:80:"D:\easyPHP\EasyPHP-12.1\www\atlasMineralov\app\templates\Ciselniky\default.latte";i:2;i:1349685201;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:30:"f8aa369 released on 2012-08-30";}}}?><?php
+<?php //netteCache[01]000402a:2:{s:4:"time";s:21:"0.39744300 1349768664";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:80:"D:\easyPHP\EasyPHP-12.1\www\atlasMineralov\app\templates\Ciselniky\default.latte";i:2;i:1349768519;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:30:"f8aa369 released on 2012-08-30";}}}?><?php
 
 // source file: D:\easyPHP\EasyPHP-12.1\www\atlasMineralov\app\templates\Ciselniky\default.latte
 
 ?><?php
 // prolog Nette\Latte\Macros\CoreMacros
-list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, 'on3cxhda4l')
+list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, 'mvqlf8hd2r')
 ;
 // prolog Nette\Latte\Macros\UIMacros
 //
 // block content
 //
-if (!function_exists($_l->blocks['content'][] = '_lbd38c95397e_content')) { function _lbd38c95397e_content($_l, $_args) { extract($_args)
+if (!function_exists($_l->blocks['content'][] = '_lb5b498fa673_content')) { function _lb5b498fa673_content($_l, $_args) { extract($_args)
 ?>zakladna strana ciselnikov
 <br />
 <a href="/atlasMineralov/www/Ciselnikfarba/">Farba    </a>
-    
-    
-<?php
+<br />
+<a href="/atlasMineralov/www/Ciselnikkrystalografickasustava/">Kryštalografická sústava    </a>
+<br />
+<a href="/atlasMineralov/www/Ciselniklesk/">Lesk    </a>
+<br />
+<a href="/atlasMineralov/www/Ciselniklom/">Lom    </a>
+<br />
+<a href="/atlasMineralov/www/Ciselnikpriepustnostsvetla/">Priepustnosť svetla    </a>
+<br />
+<a href="/atlasMineralov/www/Ciselnikstiepatelnost/">Štiepateľnosť    </a>
+<br />
+<a href="/atlasMineralov/www/Ciselnikvonkajsivzhlad/">Vonkajší vzhľad    </a>
+<br />
+<a href="/atlasMineralov/www/Ciselnikvryp/">Vryp    </a><?php
 }}
 
 //
