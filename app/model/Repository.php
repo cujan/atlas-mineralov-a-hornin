@@ -43,5 +43,9 @@ abstract class Repository extends Nette\Object
     {
         return $this->getTable()->where($by);
     }
-
+    
+    public function deleteBy(array $by)
+    {
+        return $this->findBy($by)->delete();
+    }
 }
