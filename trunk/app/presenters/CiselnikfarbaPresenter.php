@@ -5,7 +5,7 @@ use Nette\Application\UI\Form;
 class CiselnikfarbaPresenter extends BasePresenter
 {
     private $ciselnikfarbaRepository;
-    
+    private $tasks;
     
     
     protected function startup()
@@ -34,6 +34,34 @@ class CiselnikfarbaPresenter extends BasePresenter
 	$this->flashMessage('Vlastnosť pridaná.', 'success');
     $this->redirect('this');
     }
-    
+    /********************* view delete *********************/
+    public function renderDelete($id = 0)
+	{
+        $this->template->tasks = $this->ciselnikfarbaRepository->findBy(array('id' => $id));
+		
+	}
+        /**
+	 * Album delete form component factory.
+	 * @return mixed
+	 */
+	protected function createComponentDeleteForm()
+	{
+		$form = new Form;
+		$form->addSubmit('cancel', 'Cancel');
+		$form->addSubmit('delete', 'Delete')->setAttribute('class', 'default');
+		$form->onSuccess[] = $this->deleteFormSubmitted;
+		$form->addProtection('Please submit this form again (security token has expired).');
+		return $form;
+	}
+        //funkcia pre mazanie
+        public function deleteFormSubmitted(Form $form)
+	{
+		if ($form['delete']->isSubmittedBy()) {
+			//$this->albums->find($this->getParameter('id'))->delete();
+                        $this->tasks->deleteBy(array('id' => '6'));
+			$this->flashMessage('Vlastnosť bola vymazaná.');
+		}
 
+		$this->redirect('default');
+	}
 }

@@ -1,2 +1,9 @@
+{block #content}
 
-{block content}
+<h1 n:block="title">Zmaz vlastnost</h1>
+
+{foreach $tasks as $task}
+	<p>Ste si isty, ze chcete zmazat {$task->vlastnost} ?</p>
+	{control deleteForm}
+{/foreach}
+	
