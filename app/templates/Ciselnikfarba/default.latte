@@ -1,8 +1,11 @@
 
 {block content}
 
-farba obsah
 
+<fieldset>
+    <legend>Farba</legend>
+{control vlozVlastnostForm}
+</fieldset>
 <table>
     <thead>
     <tr>
@@ -11,13 +14,19 @@ farba obsah
     </tr>
     </thead>
     <tbody>
-        {var $i=1}
+        
     {foreach $tasks as $task}
     <tr>
-        <td>{$i}</td>
+	
+        <td>{$iterator->getCounter()} </td>
         <td>{$task->vlastnost}</td>
+	<td>
+		<a n:href="edit, $task->id">Edit</a>
+		<a n:href="delete, $task->id">Delete</a>
+	</td>
     </tr>
-    {$i++}
+    
     {/foreach}
+    
     </tbody>
 </table>
