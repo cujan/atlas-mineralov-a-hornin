@@ -1,7 +1,11 @@
 
 {block content}
 
-vryp
+
+<fieldset>
+    <legend>Vryp</legend>
+{control vlozVlastnostForm}
+</fieldset>
 <table>
     <thead>
     <tr>
@@ -10,12 +14,17 @@ vryp
     </tr>
     </thead>
     <tbody>
-    
+        
     {foreach $tasks as $task}
     <tr>
-        
+	
+        <td>{$iterator->getCounter()} </td>
         <td>{$task->vlastnost}</td>
+	<td>
+		<a n:href="delete, $task->id">Delete</a>
+	</td>
     </tr>
+    
     {/foreach}
     
     </tbody>

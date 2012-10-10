@@ -59,14 +59,11 @@ class CiselnikfarbaPresenter extends BasePresenter
 	{
 		if ($form['delete']->isSubmittedBy()) {
 		    $id = $form['id']->getValue();
-			//$this->albums->find($this->getParameter('id'))->delete();
-                        //$this->templates->tasks->findBy($this->getParameter('id'))->delete();
-			$this->templates->tasks->findBy(array('id'=> $id))->delete();
-			//$this->ciselnikfarbaRepository->findBy(array($tasks ->$id))->delete();
-		dump($id);	
-		    $this->flashMessage($id);
+			$this->ciselnikfarbaRepository->findBy(array('id'=> $id))->delete();
+						
+		    $this->flashMessage('Vlastnosť bola úspešne vymazaná!');
 		}
 
-		//$this->redirect('default');
+		$this->redirect('default');
 	}
 }
