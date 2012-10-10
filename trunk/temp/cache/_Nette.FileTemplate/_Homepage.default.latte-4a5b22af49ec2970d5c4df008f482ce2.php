@@ -1,16 +1,16 @@
-<?php //netteCache[01]000401a:2:{s:4:"time";s:21:"0.94854800 1349681068";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:79:"D:\easyPHP\EasyPHP-12.1\www\atlasMineralov\app\templates\Homepage\default.latte";i:2;i:1349681063;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:30:"f8aa369 released on 2012-08-30";}}}?><?php
+<?php //netteCache[01]000401a:2:{s:4:"time";s:21:"0.39129300 1349854449";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:79:"D:\easyPHP\EasyPHP-12.1\www\atlasMineralov\app\templates\Homepage\default.latte";i:2;i:1349768518;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:30:"f8aa369 released on 2012-08-30";}}}?><?php
 
 // source file: D:\easyPHP\EasyPHP-12.1\www\atlasMineralov\app\templates\Homepage\default.latte
 
 ?><?php
 // prolog Nette\Latte\Macros\CoreMacros
-list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, 'co4hvywk52')
+list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, '9fvlislrmc')
 ;
 // prolog Nette\Latte\Macros\UIMacros
 //
 // block content
 //
-if (!function_exists($_l->blocks['content'][] = '_lb759f7e7578_content')) { function _lb759f7e7578_content($_l, $_args) { extract($_args)
+if (!function_exists($_l->blocks['content'][] = '_lbf983283c2c_content')) { function _lbf983283c2c_content($_l, $_args) { extract($_args)
 ?><a href="/atlasMineralov/www/ciselniky/">Číselníky</a>
 
 

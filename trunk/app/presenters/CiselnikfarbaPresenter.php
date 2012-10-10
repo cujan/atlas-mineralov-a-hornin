@@ -37,8 +37,8 @@ class CiselnikfarbaPresenter extends BasePresenter
     /********************* view delete *********************/
     public function renderDelete($id = 0)
 	{
-        $this->template->tasks = $this->ciselnikfarbaRepository->findBy(array('id' => $id));
-		
+        $this->template->tasks = $this->ciselnikfarbaRepository->findBy(array('id'=>$id));
+	
 	}
         /**
 	 * Album delete form component factory.
@@ -47,6 +47,7 @@ class CiselnikfarbaPresenter extends BasePresenter
 	protected function createComponentDeleteForm()
 	{
 		$form = new Form;
+		$form->addHidden('id', $this->getParameter('id'));
 		$form->addSubmit('cancel', 'Cancel');
 		$form->addSubmit('delete', 'Delete')->setAttribute('class', 'default');
 		$form->onSuccess[] = $this->deleteFormSubmitted;
@@ -57,11 +58,15 @@ class CiselnikfarbaPresenter extends BasePresenter
         public function deleteFormSubmitted(Form $form)
 	{
 		if ($form['delete']->isSubmittedBy()) {
+		    $id = $form['id']->getValue();
 			//$this->albums->find($this->getParameter('id'))->delete();
-                        $this->tasks->deleteBy(array('id' => '6'));
-			$this->flashMessage('Vlastnosť bola vymazaná.');
+                        //$this->templates->tasks->findBy($this->getParameter('id'))->delete();
+			$this->templates->tasks->findBy(array('id'=> $id))->delete();
+			//$this->ciselnikfarbaRepository->findBy(array($tasks ->$id))->delete();
+		dump($id);	
+		    $this->flashMessage($id);
 		}
 
-		$this->redirect('default');
+		//$this->redirect('default');
 	}
 }

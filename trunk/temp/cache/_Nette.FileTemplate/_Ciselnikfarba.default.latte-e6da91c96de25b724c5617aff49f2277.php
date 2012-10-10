@@ -1,16 +1,16 @@
-<?php //netteCache[01]000406a:2:{s:4:"time";s:21:"0.91688200 1349782131";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:84:"D:\easyPHP\EasyPHP-12.1\www\atlasMineralov\app\templates\Ciselnikfarba\default.latte";i:2;i:1349782126;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:30:"f8aa369 released on 2012-08-30";}}}?><?php
+<?php //netteCache[01]000406a:2:{s:4:"time";s:21:"0.50580900 1349854562";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:84:"D:\easyPHP\EasyPHP-12.1\www\atlasMineralov\app\templates\Ciselnikfarba\default.latte";i:2;i:1349854423;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:30:"f8aa369 released on 2012-08-30";}}}?><?php
 
 // source file: D:\easyPHP\EasyPHP-12.1\www\atlasMineralov\app\templates\Ciselnikfarba\default.latte
 
 ?><?php
 // prolog Nette\Latte\Macros\CoreMacros
-list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, '0szp8bsa73')
+list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, 'ouqkrscb0v')
 ;
 // prolog Nette\Latte\Macros\UIMacros
 //
 // block content
 //
-if (!function_exists($_l->blocks['content'][] = '_lbce5905c2ac_content')) { function _lbce5905c2ac_content($_l, $_args) { extract($_args)
+if (!function_exists($_l->blocks['content'][] = '_lb605835d141_content')) { function _lb605835d141_content($_l, $_args) { extract($_args)
 ?><fieldset>
     <legend>Farba</legend>
 <?php $_ctrl = $_control->getComponent("vlozVlastnostForm"); if ($_ctrl instanceof Nette\Application\UI\IRenderable) $_ctrl->validateControl(); $_ctrl->render() ?>
@@ -30,8 +30,6 @@ if (!function_exists($_l->blocks['content'][] = '_lbce5905c2ac_content')) { func
         <td><?php echo Nette\Templating\Helpers::escapeHtml($iterator->getCounter(), ENT_NOQUOTES) ?> </td>
         <td><?php echo Nette\Templating\Helpers::escapeHtml($task->vlastnost, ENT_NOQUOTES) ?></td>
 	<td>
-		<a href="<?php echo htmlSpecialChars($_control->link("edit", array($task->id))) ?>
-">Edit</a>
 		<a href="<?php echo htmlSpecialChars($_control->link("delete", array($task->id))) ?>
 ">Delete</a>
 	</td>
