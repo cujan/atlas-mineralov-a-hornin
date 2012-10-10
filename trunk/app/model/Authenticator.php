@@ -27,21 +27,21 @@ class Authenticator extends Nette\Object implements NS\IAuthenticator
 	 * @throws Nette\Security\AuthenticationException
 	 */
 	public function authenticate(array $credentials)
-	{
-		list($username, $password) = $credentials;
-		$row = $this->database->table('users')->where('username', $username)->fetch();
+        {
+            list($username, $password) = $credentials;
+            $row = $this->userRepository->findByName($username);
 
-		if (!$row) {
-			throw new NS\AuthenticationException("User '$username' not found.", self::IDENTITY_NOT_FOUND);
-		}
+            if (!$row) {
+                throw new NS\AuthenticationException("User '$username' not found.", self::IDENTITY_NOT_FOUND);
+            }
 
-		if ($row->password !== $this->calculateHash($password)) {
-			throw new NS\AuthenticationException("Invalid password.", self::INVALID_CREDENTIAL);
-		}
+            if ($row->password !== self::calculateHash($password, $row->password)) {
+            throw new NS\AuthenticationException("Invalid password.", self::INVALID_CREDENTIAL);
+            }
 
-		unset($row->password);
-		return new NS\Identity($row->id, $row->role, $row->toArray());
-	}
+            unset($row->password);
+            return new NS\Identity($row->id, NULL, $row->toArray());
+        }
 
 
 
@@ -50,9 +50,12 @@ class Authenticator extends Nette\Object implements NS\IAuthenticator
 	 * @param  string
 	 * @return string
 	 */
-	public function calculateHash($password)
-	{
-		return md5($password . str_repeat('*random salt*', 10));
-	}
+	public static function calculateHash($password, $salt = null)
+        {
+            if ($salt === null) {
+            $salt = '$2a$07$' . Nette\Utils\Strings::random(32) . '$';
+            }
+        return crypt($password, $salt);
+        }
 
 }

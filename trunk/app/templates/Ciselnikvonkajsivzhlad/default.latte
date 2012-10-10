@@ -1,6 +1,11 @@
 
 {block content}
-vonkajsi vzhlad
+
+
+<fieldset>
+    <legend>Vonkajší vzhľad</legend>
+{control vlozVlastnostForm}
+</fieldset>
 <table>
     <thead>
     <tr>
@@ -9,10 +14,18 @@ vonkajsi vzhlad
     </tr>
     </thead>
     <tbody>
+        
     {foreach $tasks as $task}
     <tr>
+	
+        <td>{$iterator->getCounter()} </td>
         <td>{$task->vlastnost}</td>
+	<td>
+		<a n:href="delete, $task->id">Delete</a>
+	</td>
     </tr>
+    
     {/foreach}
+    
     </tbody>
 </table>

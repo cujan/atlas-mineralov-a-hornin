@@ -1,17 +1,20 @@
-<?php //netteCache[01]000405a:2:{s:4:"time";s:21:"0.58634500 1349727121";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:83:"D:\easyphp\EasyPHP-12.1\www\atlasMineralov\app\templates\Ciselniklesk\default.latte";i:2;i:1349727113;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:30:"f8aa369 released on 2012-08-30";}}}?><?php
+<?php //netteCache[01]000405a:2:{s:4:"time";s:21:"0.97614300 1349894663";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:83:"D:\easyphp\EasyPHP-12.1\www\atlasMineralov\app\templates\Ciselniklesk\default.latte";i:2;i:1349887616;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:30:"f8aa369 released on 2012-08-30";}}}?><?php
 
 // source file: D:\easyphp\EasyPHP-12.1\www\atlasMineralov\app\templates\Ciselniklesk\default.latte
 
 ?><?php
 // prolog Nette\Latte\Macros\CoreMacros
-list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, 'qs22d38qvb')
+list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, '84krugfpb9')
 ;
 // prolog Nette\Latte\Macros\UIMacros
 //
 // block content
 //
-if (!function_exists($_l->blocks['content'][] = '_lbf1786ce107_content')) { function _lbf1786ce107_content($_l, $_args) { extract($_args)
-?>lesk
+if (!function_exists($_l->blocks['content'][] = '_lb32ab4e55d0_content')) { function _lb32ab4e55d0_content($_l, $_args) { extract($_args)
+?><fieldset>
+    <legend>Lesk</legend>
+<?php $_ctrl = $_control->getComponent("vlozVlastnostForm"); if ($_ctrl instanceof Nette\Application\UI\IRenderable) $_ctrl->validateControl(); $_ctrl->render() ?>
+</fieldset>
 <table>
     <thead>
     <tr>
@@ -20,11 +23,20 @@ if (!function_exists($_l->blocks['content'][] = '_lbf1786ce107_content')) { func
     </tr>
     </thead>
     <tbody>
-<?php $iterations = 0; foreach ($tasks as $task): ?>
+        
+<?php $iterations = 0; foreach ($iterator = $_l->its[] = new Nette\Iterators\CachingIterator($tasks) as $task): ?>
     <tr>
+	
+        <td><?php echo Nette\Templating\Helpers::escapeHtml($iterator->getCounter(), ENT_NOQUOTES) ?> </td>
         <td><?php echo Nette\Templating\Helpers::escapeHtml($task->vlastnost, ENT_NOQUOTES) ?></td>
+	<td>
+		<a href="<?php echo htmlSpecialChars($_control->link("delete", array($task->id))) ?>
+">Delete</a>
+	</td>
     </tr>
-<?php $iterations++; endforeach ?>
+    
+<?php $iterations++; endforeach; array_pop($_l->its); $iterator = end($_l->its) ?>
+    
     </tbody>
 </table><?php
 }}
@@ -49,6 +61,8 @@ if ($_l->extends) {
 // main template
 //
 ?>
+
+
 
 <?php if ($_l->extends) { ob_end_clean(); return Nette\Latte\Macros\CoreMacros::includeTemplate($_l->extends, get_defined_vars(), $template)->render(); }
 call_user_func(reset($_l->blocks['content']), $_l, get_defined_vars()) ; 

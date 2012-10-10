@@ -13,4 +13,8 @@ class CiselnikvonkajsivzhladRepository extends Repository
     {
 	return $this->findAll();
     }
+     public function createTask($task)
+    {
+    return $this->getTable()->insert(array('vlastnost' => $task));
+    }
 }
