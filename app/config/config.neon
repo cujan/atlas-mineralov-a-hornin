@@ -21,7 +21,8 @@ common:
 
 		database:
 			default:
-				dsn: 'mysql:host=87.197.23.74;dbname=atlasMineralov'
+				#dsn: 'mysql:host=87.197.23.74;dbname=atlasMineralov'
+				dsn: 'mysql:host=192.168.1.1;dbname=atlasMineralov'
 				user: 'cujan'
 				password: 'cujan'
 
