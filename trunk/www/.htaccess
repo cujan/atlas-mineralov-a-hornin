@@ -1,12 +1,12 @@
 # Apache configuration file (see httpd.apache.org/docs/2.2/mod/quickreference.html)
 
 # disable directory listing
-#Options -Indexes
+Options -Indexes
 
 # enable cool URL
 <IfModule mod_rewrite.c>
 	RewriteEngine On
-	# RewriteBase /
+	#RewriteBase /
 
 	# prevents files starting with dot to be viewed by browser
 	RewriteRule /\.|^\. - [F]
@@ -25,7 +25,10 @@
 # allow combined JavaScript & CSS. Inside of script.combined.js you could use <!--#include file="script.js" -->
 <IfModule mod_include.c>
 	<FilesMatch "\.combined\.(js|css)$">
-		Options +Includes
-		SetOutputFilter INCLUDES
+		#Options +Includes
+		#SetOutputFilter INCLUDES
 	</FilesMatch>
 </IfModule>
+php_flag register_globals off
+php_flag eaccelerator.enable 0
+php_flag eaccelerator.optimizer 0
