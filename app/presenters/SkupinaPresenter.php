@@ -1,22 +1,26 @@
 <?php
 use Nette\Application\UI\Form;
-class CiselnikpriepustnostsvetlaPresenter extends BasePresenter
-{
-    private $ciselnikpriepustnostsvetlaRepository;
-    
+/**
+ * Description of SkupinaPresenter
+ *
+ * @author Stredna lesnicka
+ */
+class SkupinaPresenter extends BasePresenter {
+
+    private $skupinaRepository;
+    private $tasks;
     
     
     protected function startup()
     {
-        parent::startup();
-        $this->ciselnikpriepustnostsvetlaRepository = $this->context->ciselnikpriepustnostsvetlaRepository;
+	parent::startup();
+	$this->skupinaRepository = $this->context->skupinaRepository;
     }
     
-    public function renderDefault()
+   public function renderDefault()
     {
-        $this->template->tasks = $this->ciselnikpriepustnostsvetlaRepository->findAllPriepustnostsvetla();
-    } 
-    
+	$this->template->tasks = $this->skupinaRepository->findAllSkupina();
+    }
     //vytvori formular
     protected function createComponentVlozVlastnostForm() 
     {
@@ -29,14 +33,14 @@ class CiselnikpriepustnostsvetlaPresenter extends BasePresenter
     //spracuje vystup po odoslani formulara (ulozi vlastnosti)
     public function vlozVlastnostFormSubmitted(Form $form)
     {
-	$this->ciselnikpriepustnostsvetlaRepository->createTask($form->values->vlastnost);
+	$this->skupinaRepository->createTask($form->values->vlastnost);
 	$this->flashMessage('Vlastnosť pridaná.', 'success');
     $this->redirect('this');
     }
     /********************* view delete *********************/
     public function renderDelete($id = 0)
 	{
-        $this->template->tasks = $this->ciselnikpriepustnostsvetlaRepository->findBy(array('id'=>$id));
+        $this->template->tasks = $this->skupinaRepository->findBy(array('id'=>$id));
 	
 	}
         /**
@@ -58,11 +62,12 @@ class CiselnikpriepustnostsvetlaPresenter extends BasePresenter
 	{
 		if ($form['delete']->isSubmittedBy()) {
 		    $id = $form['id']->getValue();
-			$this->ciselnikpriepustnostsvetlaRepository->findBy(array('id'=> $id))->delete();
+			$this->skupinaRepository->findBy(array('id'=> $id))->delete();
 						
 		    $this->flashMessage('Vlastnosť bola úspešne vymazaná!');
 		}
 
 		$this->redirect('default');
 	}
+
 }

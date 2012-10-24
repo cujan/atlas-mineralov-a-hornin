@@ -1,0 +1,41 @@
+{control vlozMineraltForm}
+
+vlozMineraltForm<table border="1">
+    <thead>
+    <tr>
+        <th>Minerál</th>
+        
+    </tr>
+    </thead>
+    <tbody>
+	<tr>
+	    <td>P.č.</td>
+	    <td>názov prvku</td>
+	    <td>skupina</td>
+	    <td>chemické zloženie</td>
+	    <td>kryštalografická sústava</td>
+	    <td>vryp</td>
+	    <td>tvrdosť (od - do)</td>
+	    <td>štiepateľnosť</td>
+	    <td>hustota (od - do)</td>
+	    
+	    
+	</tr>  
+    {foreach $mineraly as $mineral}
+    <tr>
+	<td>{$iterator->getCounter()} </td>
+        <td>{$mineral->nazov}</td>
+	<td>{$mineral->skupina->nazov}</td>
+	<td>{$mineral->chemickeZlozenie}</td>
+	<td>{$mineral->ciselnikkrystalografickasustava->vlastnost}</td>
+	<td>{$mineral->ciselnikvryp->vlastnost}</td>
+	<td>{$mineral->tvrdostOd} - {$mineral->tvrdostDo}</td>
+	<td>{$mineral->ciselnikstiepatelnost->vlastnost}</td>
+	<td>{$mineral->hustotaOd} - {$mineral->hustotaDo}</td>
+	
+    </tr>
+    
+    {/foreach}
+    
+    </tbody>
+</table>
