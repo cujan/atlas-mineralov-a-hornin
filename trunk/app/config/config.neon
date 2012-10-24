@@ -39,7 +39,10 @@ common:
 		ciselnikstiepatelnostRepository: TODO\CiselnikstiepatelnostRepository
 		ciselnikvonkajsivzhladRepository: TODO\CiselnikvonkajsivzhladRepository
 		ciselnikvrypRepository: TODO\CiselnikvrypRepository
+		skupinaRepository: TODO\SkupinaRepository
 		userRepository: Todo\UserRepository
+		mineralRepository: Todo\MineralRepository
+		mineralfarbaRepository: Todo\MineralfarbaRepository
 
 	factories:
 
