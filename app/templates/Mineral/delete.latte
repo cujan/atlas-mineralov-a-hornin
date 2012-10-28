@@ -1,0 +1,8 @@
+
+{block content}
+
+{foreach $mineraly as $mineral}
+<p>Ste si istý, že chcete zmazať {$mineral -> nazov} ?</p>
+
+{control deleteForm}
+{/foreach}

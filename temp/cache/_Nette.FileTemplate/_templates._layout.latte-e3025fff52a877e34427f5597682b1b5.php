@@ -1,23 +1,23 @@
-<?php //netteCache[01]000392a:2:{s:4:"time";s:21:"0.97357700 1349716858";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:70:"D:\easyphp\EasyPHP-12.1\www\atlasMineralov\app\templates\@layout.latte";i:2;i:1349716834;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:30:"f8aa369 released on 2012-08-30";}}}?><?php
+<?php //netteCache[01]000392a:2:{s:4:"time";s:21:"0.12159100 1351346579";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:70:"D:\easyphp\EasyPHP-12.1\www\atlasMineralov\app\templates\@layout.latte";i:2;i:1351346577;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:30:"f8aa369 released on 2012-08-30";}}}?><?php
 
 // source file: D:\easyphp\EasyPHP-12.1\www\atlasMineralov\app\templates\@layout.latte
 
 ?><?php
 // prolog Nette\Latte\Macros\CoreMacros
-list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, 'ipqvn2gco3')
+list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, 'yyduxp0lf8')
 ;
 // prolog Nette\Latte\Macros\UIMacros
 //
 // block title
 //
-if (!function_exists($_l->blocks['title'][] = '_lb35a39484f9_title')) { function _lb35a39484f9_title($_l, $_args) { extract($_args)
+if (!function_exists($_l->blocks['title'][] = '_lb428c61ae95_title')) { function _lb428c61ae95_title($_l, $_args) { extract($_args)
 ?>Nette Application Skeleton<?php
 }}
 
 //
 // block head
 //
-if (!function_exists($_l->blocks['head'][] = '_lbde1ab84355_head')) { function _lbde1ab84355_head($_l, $_args) { extract($_args)
+if (!function_exists($_l->blocks['head'][] = '_lb172488194e_head')) { function _lb172488194e_head($_l, $_args) { extract($_args)
 ;
 }}
 
@@ -64,11 +64,15 @@ ob_start(); call_user_func(reset($_l->blocks['title']), $_l, get_defined_vars())
 </head>
 
 <body>
-	<script> document.body.className+=' js' </script>
-
-<?php $iterations = 0; foreach ($flashes as $flash): ?>	<div class="flash <?php echo htmlSpecialChars($flash->type) ?>
-"><?php echo Nette\Templating\Helpers::escapeHtml($flash->message, ENT_NOQUOTES) ?></div>
+    
+<?php $iterations = 0; foreach ($menuItems as $item => $link): ?>
+    
+	<a href="<?php echo htmlSpecialChars($_control->link($link)) ?>"><?php echo Nette\Templating\Helpers::escapeHtml($item, ENT_NOQUOTES) ?></a>
+	&nbsp;
 <?php $iterations++; endforeach ?>
+	<br /><br />
+    
+	
 
 <?php Nette\Latte\Macros\UIMacros::callBlock($_l, 'content', $template->getParameters()) ?>
 	
