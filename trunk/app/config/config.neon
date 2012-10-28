@@ -43,6 +43,8 @@ common:
 		userRepository: Todo\UserRepository
 		mineralRepository: Todo\MineralRepository
 		mineralfarbaRepository: Todo\MineralfarbaRepository
+		mineralleskRepository: Todo\MineralleskRepository
+		minerallomRepository: Todo\MinerallomRepository
 
 	factories:
 

@@ -24,6 +24,8 @@ class MineralPresenter extends BasePresenter {
     private $ciselnikleskRepository;
     private $ciselniklomRepository;
     private $mineralfarbaRepository;
+    private $mineralleskRepository;
+    private $minerallomRepository;
     private $tasks;
     
 
@@ -39,6 +41,8 @@ class MineralPresenter extends BasePresenter {
 	$this->ciselnikleskRepository = $this->context->ciselnikleskRepository;
 	$this->ciselniklomRepository = $this->context->ciselniklomRepository;
 	$this->mineralfarbaRepository = $this->context->mineralfarbaRepository;
+	$this->mineralleskRepository = $this->context->mineralleskRepository;
+	$this->minerallomRepository = $this->context->minerallomRepository;
 	 
     }
 
@@ -48,6 +52,8 @@ class MineralPresenter extends BasePresenter {
 
     public function renderDefault() {
 	$this->template->mineraly = $this->mineralRepository->findAllMineral();
+	
+	
     }
     
     //vytvori formular
@@ -74,8 +80,8 @@ class MineralPresenter extends BasePresenter {
 	$form -> addText('hustotaOd','hustota od',40,100);
 	$form -> addText('hustotaDo','hustota do',40,100);
 	$form -> addCheckboxList('farba','farba',$farba);
-	//$form -> addCheckboxList('lesk','lesk',$lesk);
-	//$form -> addCheckboxList('lom','lom',$lom);
+	$form -> addCheckboxList('lesk','lesk',$lesk);
+	$form -> addCheckboxList('lom','lom',$lom);
 	
 	
 	$form->addSubmit('create', 'Vložiť minerál');
@@ -93,11 +99,56 @@ class MineralPresenter extends BasePresenter {
 	//id posledneho vlozeneho mineralu
 	$idMineral = $mineral['id'];
 	$farby = $form->values->farba;
+	$lesky = $form ->values->lesk;
+	$lomy = $form ->values->lom;
+	//vlozi zaznamy do tabulky mineralFarba
 	foreach ($farby as $farba)
 	{
 	    $this->mineralfarbaRepository->vlozZaznam($idMineral,$farba);
 	}
+	//vlozi lesk
+	foreach ($lesky as $lesk)
+	{
+	    $this->mineralleskRepository->vlozZaznam($idMineral,$lesk);
+	}
+	//vlozi lom
+	foreach ($lomy as $lom)
+	{
+	    $this->minerallomRepository->vlozZaznam($idMineral,$lom);
+	}
 	
-   //$this->redirect('this');
+   $this->redirect('this');
     }
+    
+    //obsluha delete view a formulara
+    public function renderDelete($id=0)
+    {
+	$this->template->mineraly = $this->mineralRepository->findBy(array('id'=>$id));
+	
+    }
+    
+    //formular na mazanie
+    protected function createComponentDeleteForm()
+	{
+		$form = new Form;
+		$form->addHidden('id', $this->getParameter('id'));
+		$form->addSubmit('cancel', 'Cancel');
+		$form->addSubmit('delete', 'Delete')->setAttribute('class', 'default');
+		$form->onSuccess[] = $this->deleteFormSubmitted;
+		$form->addProtection('Please submit this form again (security token has expired).');
+		return $form;
+	}
+	
+	//funkcia pre mazanie
+        public function deleteFormSubmitted(Form $form)
+	{
+		if ($form['delete']->isSubmittedBy()) {
+		    $id = $form['id']->getValue();
+			$this->mineralRepository->findBy(array('id'=> $id))->delete();
+						
+		    $this->flashMessage('Minerál bol úspešne vymazaný!');
+		}
+
+		$this->redirect('default');
+	}
 }

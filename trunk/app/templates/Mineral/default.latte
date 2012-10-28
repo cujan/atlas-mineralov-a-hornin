@@ -1,6 +1,8 @@
+{block content}
+
 {control vlozMineraltForm}
 
-vlozMineraltForm<table border="1">
+<table border="1">
     <thead>
     <tr>
         <th>Minerál</th>
@@ -18,6 +20,9 @@ vlozMineraltForm<table border="1">
 	    <td>tvrdosť (od - do)</td>
 	    <td>štiepateľnosť</td>
 	    <td>hustota (od - do)</td>
+	    <td>Farba</td>
+	    <td>Lesk</td>
+	    <td>Lom</td>
 	    
 	    
 	</tr>  
@@ -32,7 +37,27 @@ vlozMineraltForm<table border="1">
 	<td>{$mineral->tvrdostOd} - {$mineral->tvrdostDo}</td>
 	<td>{$mineral->ciselnikstiepatelnost->vlastnost}</td>
 	<td>{$mineral->hustotaOd} - {$mineral->hustotaDo}</td>
-	
+	<td>
+	{foreach $mineral->related('mineralFarba') as $mf}
+        {$mf->ref('ciselnikfarba','idFarba')->vlastnost}
+        {sep}, {/sep}
+	{/foreach}
+	</td>
+	<td>
+	{foreach $mineral->related('mineralLesk') as $ml}
+        {$ml->ref('ciselniklesk','idLesk')->vlastnost}
+        {sep}, {/sep}
+	{/foreach}
+	</td>
+	<td>
+	{foreach $mineral->related('mineralLom') as $mlom}
+        {$mlom->ref('ciselniklom','idLom')->vlastnost}
+        {sep}, {/sep}
+	{/foreach}
+	</td>
+	<td>
+		<a n:href="delete, $mineral->id">Delete</a>
+	</td>
     </tr>
     
     {/foreach}
