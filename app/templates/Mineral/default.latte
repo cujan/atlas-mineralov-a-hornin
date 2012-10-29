@@ -1,6 +1,66 @@
 {block content}
 
-{control vlozMineraltForm}
+{form vlozMineralForm}
+<table>
+    <tr>
+	<th>{label nazov/}</th>
+	<td>{input nazov}</td>
+    </tr>
+    <tr>
+	<th>{label skupina/}</th>
+	<td>{input skupina}</td>
+    </tr>
+    <tr>
+	<th>{label chemickeZlozenie/}</th>
+	<td>{input chemickeZlozenie}</td>
+    </tr>
+    <tr>
+	<th>{label krystalografickaSustava/}</th>
+	<td>{input krystalografickaSustava}</td>
+    </tr>
+    <tr>
+	<th>{label vryp/}</th>
+	<td>{input vryp}</td>
+    </tr>
+    <tr>
+	<th>{label tvrdostOd/}</th>
+	<td>{input tvrdostOd}</td>
+    </tr>
+    <tr>
+	<th>{label tvrdostDo/}</th>
+	<td>{input tvrdostDo}</td>
+    </tr>
+    <tr>
+	<th>{label stiepatelnost/}</th>
+	<td>{input stiepatelnost}</td>
+    </tr>
+    
+    <tr>
+	<th>{label hustotaOd/}</th>
+	<td>{input hustotaOd}</td>
+    </tr>
+    <tr>
+	<th>{label hustotaDo/}</th>
+	<td>{input hustotaDo}</td>
+    </tr>
+    <tr>
+	<th>{label farba/}</th>
+	<td>{input farba}</td>
+	<th>{label lesk/}</th>
+	<td>{input lesk}</td>
+	<th>{label lom/}</th>
+	<td>{input lom}</td>
+    </tr>
+    <tr>
+	<th>{label create/}</th>
+	<td>{input create}</td>
+    </tr>
+    
+</table>
+{/form}
+
+
+
 
 <table border="1">
     <thead>
