@@ -57,7 +57,7 @@ class MineralPresenter extends BasePresenter {
     }
     
     //vytvori formular
-    protected function createComponentVlozMineraltForm() 
+    protected function createComponentVlozMineralForm() 
     {
 	$skupina = $this->skupinaRepository->findAllSkupina()->fetchPairs('id','nazov');
 	$krystalografickaSustava = $this->ciselnikkrystalografickasustavaRepository->findAllKrystalografickaSustava()->fetchPairs('id','vlastnost');
@@ -70,13 +70,13 @@ class MineralPresenter extends BasePresenter {
 	
 	$form = new Form();
 	$form -> addText('nazov','Názov minerálu',40,100)->addRule(Form::FILLED,'Je nutné zadať názov');
-	$form -> addSelect('skupina','Skupina',$skupina);
+	$form -> addSelect('skupina','Skupina',$skupina)->setPrompt('- Zvoľte skupinu -');
 	$form -> addText('chemickeZlozenie','Chemické zloženie',40,100);
-	$form -> addSelect('krystalografickaSustava','Kryštalografická sústava',$krystalografickaSustava);
-	$form -> addSelect('vryp','Vryp',$vryp);
+	$form -> addSelect('krystalografickaSustava','Kryštalografická sústava',$krystalografickaSustava)->setPrompt('- Zvoľte sústavu -');
+	$form -> addSelect('vryp','Vryp',$vryp)->setPrompt('- Zvoľte vryp -');
 	$form -> addText('tvrdostOd','tvrdosť od',40,100);
 	$form -> addText('tvrdostDo','tvrdosť do',40,100);
-	$form -> addSelect('stiepatelnost','Štiepateľnosť',$stiepatelnost);
+	$form -> addSelect('stiepatelnost','Štiepateľnosť',$stiepatelnost)->setPrompt('- Zvoľte štiepateľnosť -');
 	$form -> addText('hustotaOd','hustota od',40,100);
 	$form -> addText('hustotaDo','hustota do',40,100);
 	$form -> addCheckboxList('farba','farba',$farba);
